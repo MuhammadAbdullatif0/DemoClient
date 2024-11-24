@@ -1,0 +1,28 @@
+<div class="account-container">
+  @if(!isAuth){
+  <div class="form-section">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2>Login</h2>
+      <div class="form-control">
+        <label for="userName">Email</label>
+        <input formControlName="userName" type="text" id="username" placeholder="Enter userName" />
+      </div>
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" id="password" placeholder="Enter Password" />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    
+  </div>
+}
+<button type="button" (click)="fetchUserInfo()">Fetch User Info</button>
+    <button type="button" (click)="logout()">Logout</button>
+@if(userData){
+  <div class="user-info">
+    <h3>Welcome, {{ userData.userName }}</h3>
+    <p><strong>Email:</strong> {{ userData.email }}</p>
+  </div>
+}
+</div>
